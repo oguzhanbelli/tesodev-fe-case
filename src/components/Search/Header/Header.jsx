@@ -3,7 +3,12 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { Logo, SearchIcon } from "../../../assets";
 import Button from "../../Button/Button";
 import styles from "./searchheader.module.scss";
-const Header = ({ searchValue, setSearchValue }) => {
+const Header = ({
+  searchValue,
+  handleSearch,
+  searchParams,
+  setSearchValue,
+}) => {
   const navigate = useNavigate();
 
   console.log();
@@ -25,12 +30,24 @@ const Header = ({ searchValue, setSearchValue }) => {
           </div>
         </div>
         <div className="landingSearchButtonContainer">
-          <Button onClick={() => setSearchValue(searchValue)} text={"Search"} />
+          <Button
+            onClick={() => {
+              handleSearch();
+            }}
+            text={"Search"}
+          />
         </div>
       </div>
       <div>
         <div className="headerButtonContainer ">
-          <Button onClick={() => navigate("/add")} text={"Add new record"} />
+          <Button
+            onClick={() =>
+              navigate("/add/", {
+                state: Object.fromEntries([...searchParams]),
+              })
+            }
+            text={"Add new record"}
+          />
         </div>
       </div>
     </header>

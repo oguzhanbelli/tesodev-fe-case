@@ -33,11 +33,13 @@
     font-size: 18px;
     border-radius: 10px;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+    gap: 5px;
+    flex-direction: row;
+    text-align: center;
     justify-content: center;
     align-items: center;
     background-color: variables.$dropDownBtnGray;
+    max-width: fit-content;
 }
 
 .open {

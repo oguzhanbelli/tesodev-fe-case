@@ -2,7 +2,6 @@ import { MapIcon } from "../../assets";
 import styles from "./resultcard.module.scss";
 
 const ResultCard = ({ data }) => {
-  console.log(data);
   return (
     <>
       <li className={styles["input-result-container"]}>

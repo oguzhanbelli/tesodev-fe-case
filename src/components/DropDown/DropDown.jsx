@@ -1,21 +1,23 @@
 import { useState } from "react";
+import { SortIcon } from "../../assets";
 import styles from "./dropdown.module.scss";
 
-const DropDown = ({ optionsList, selectedOption, setSelectedOption }) => {
-  const [isOptionsOpen, setIsOptionsOpen] = useState(false);
-
+const DropDown = ({
+  optionsList,
+  selectedOption,
+  handleSelect,
+  isOptionsOpen,
+  setIsOptionsOpen,
+}) => {
   const toggleOptions = () => {
     setIsOptionsOpen(!isOptionsOpen);
   };
 
-  const handleSelect = (option) => {
-    setSelectedOption(option);
-    setIsOptionsOpen(false);
-  };
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <button className={styles.button} type="button" onClick={toggleOptions}>
+          <SortIcon fill="black" width="26px" height="24px" />
           {selectedOption?.title || "Order By"}
         </button>
         <div
@@ -24,7 +26,7 @@ const DropDown = ({ optionsList, selectedOption, setSelectedOption }) => {
         >
           <ul>
             {optionsList?.map((option, index) => (
-              <li onClick={() => handleSelect(option)} tabIndex={0}>
+              <li key={index} onClick={() => handleSelect(option)} tabIndex={0}>
                 {option?.title}
                 {console.log(option.title)}
               </li>

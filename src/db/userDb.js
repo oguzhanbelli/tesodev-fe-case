@@ -65,6 +65,28 @@ class UserDb {
               : 0
           )
           .reverse();
+      case "year-asc":
+        return data.sort((a, b) =>
+          a.Date.split("/")[a.Date.split("/").length - 1] >
+          b.Date.split("/")[b.Date.split("/").length - 1]
+            ? 1
+            : b.Date.split("/")[b.Date.split("/").length - 1] >
+              a.Date.split("/")[a.Date.split("/").length - 1]
+            ? -1
+            : 0
+        );
+      case "year-desc":
+        return data
+          .sort((a, b) =>
+            a.Date.split("/")[a.Date.split("/").length - 1] >
+            b.Date.split("/")[b.Date.split("/").length - 1]
+              ? 1
+              : b.Date.split("/")[b.Date.split("/").length - 1] >
+                a.Date.split("/")[a.Date.split("/").length - 1]
+              ? -1
+              : 0
+          )
+          .reverse();
     }
   };
 }

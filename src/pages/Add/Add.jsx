@@ -1,16 +1,30 @@
-import { useEffect, useState } from "react";
+import { useFormik } from "formik";
+import { useState } from "react";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import Header from "../../components/Add/Header/Header";
-import ResultCard from "../../components/ResultCard/ResultCard";
-
+import Form from "../../components/Form/Form";
+import validationSchema from "../../components/Form/validations";
+import apiService from "../../db/userDb";
 const Add = () => {
-  const [searchParams] = useSearchParams();
-
   const { state } = useLocation();
-  const [results, setResults] = useState([]);
 
   const navigate = useNavigate();
-  console.log(state);
+
+  const formik = useFormik({
+    initialValues: {
+      NameSurname: "",
+      Country: "",
+      Company: "",
+      City: "",
+      Email: "",
+      Date: new Date().getFullYear().toString(),
+    },
+    validationSchema,
+    onSubmit: (values) => {
+      console.log(values);
+      apiService.addUser(values);
+    },
+  });
   return (
     <>
       <div className="container">
@@ -19,13 +33,7 @@ const Add = () => {
           <div className="d-flex w-full  flex-col justify-center items-center">
             <div className="w-full ">
               <div className="resultContainer">
-                <ul>
-                  <div>
-                    {results?.data?.map((item, idx) => (
-                      <ResultCard key={idx} data={item} />
-                    ))}
-                  </div>
-                </ul>
+                <Form formik={formik} />
               </div>
             </div>
           </div>

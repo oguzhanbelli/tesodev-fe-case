@@ -12,7 +12,7 @@ class UserDb {
     if (employeeDBStorage) {
       let employeeDB = JSON.parse(employeeDBStorage);
 
-      employeeDB = employeeDB.data.map((item) => {
+      employeeDB = employeeDB.data.map((item, idx) => {
         return {
           NameSurname: item[0],
           Company: item[1],
@@ -88,6 +88,20 @@ class UserDb {
           )
           .reverse();
     }
+  };
+  addUser = (values) => {
+    const employeeDBStorage = localStorage.getItem("data");
+    let employeeDB = JSON.parse(employeeDBStorage);
+
+    employeeDB.data.push([
+      values.NameSurname,
+      values.Company,
+      values.Email,
+      values.Date,
+      values.Country,
+      values.City,
+    ]);
+    localStorage.setItem("data", JSON.stringify(employeeDB));
   };
 }
 

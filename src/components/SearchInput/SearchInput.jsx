@@ -4,7 +4,7 @@ import styles from "./searchinput.module.scss";
 
 const SearchInput = ({ value, setValue, results, onClick }) => {
   return (
-    <>
+    <div className={styles.searchContainer}>
       <div className={styles["search-form"]}>
         <input
           onKeyDown={(e) => {
@@ -31,10 +31,12 @@ const SearchInput = ({ value, setValue, results, onClick }) => {
                         <MapIcon />
                       </div>
                       <div className={styles["input-result-item-detail"]}>
-                        <h1>{item.NameSurname}</h1>
+                        <h1>{item?.Company}</h1>
 
                         <div className="d-flex flex-row ">
-                          <p>{item.Country}</p>,<p>{item.City}</p>
+                          <p>
+                            {item?.City}, {item?.Country}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -45,12 +47,14 @@ const SearchInput = ({ value, setValue, results, onClick }) => {
                 ))}
               </div>
 
-              <button onClick={onClick}>Show more</button>
+              <button className={styles.showmore} onClick={onClick}>
+                Show more...
+              </button>
             </div>
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

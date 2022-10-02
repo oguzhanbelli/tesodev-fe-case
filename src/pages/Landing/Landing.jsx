@@ -22,13 +22,14 @@ const Landing = () => {
       search: `?query=${searchValue}`,
     });
   };
+  console.log(results);
 
   return (
     <>
       <div className="container">
         <Header />
         <main className="mainContainer">
-          <div className="d-flex  flex-col justify-center items-center">
+          <div className="findInContainer">
             <div>
               <Logo />
               <div className="justify-end w-full text-end  logoDescription">
@@ -36,20 +37,20 @@ const Landing = () => {
               </div>
             </div>
 
-            <div className="w-full mt-5 d-flex flex-col">
-              <p className="heading">Find in records</p>
+            <div className="w-full mt-5 justify-center items-center d-flex flex-col">
               <div className="searchContainer ">
-                <div className="w-full d-flex ">
+                <p className="heading">Find in records</p>
+
+                <div className="w-full d-flex flex-row justify-center items-center ">
                   <SearchInput
                     results={results}
                     value={searchValue}
                     setValue={setSearchValue}
                     onClick={handleShowMore}
                   />
-                </div>
-
-                <div className="landingSearchButtonContainer">
-                  <Button onClick={() => handleShowMore()} text={"Search"} />
+                  <div className="landingSearchButtonContainer">
+                    <Button onClick={() => handleShowMore()} text={"Search"} />
+                  </div>
                 </div>
               </div>
             </div>

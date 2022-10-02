@@ -1,4 +1,4 @@
-@import url('../styles//_variables.scss');
+@use '/src/styles/variables';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 
@@ -176,14 +176,20 @@ body {
 }
 
 .footer {
-    position: fixed;
+    position: relative;
     left: 0;
     bottom: 0;
-    width: 100%;
 
-    background-color: white;
+    height: 277px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 55px;
+    width: 100%;
+    background-color: variables.$bgFooter;
     color: black;
     text-align: center;
+
 }
 
 .mt-5 {
@@ -191,16 +197,16 @@ body {
 }
 
 .carouselSection {
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 1210px) {
         visibility: hidden;
         //do Smth
     }
 
 
-
+    z-index: 0;
     align-items: center;
-    justify-content: center;
-    padding-top: 445px;
+    height: 1000px;
+
 
 }
 
@@ -208,12 +214,20 @@ body {
     padding-top: 10px;
     width: 100%;
     overflow: hidden;
-
-
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
+
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    height: 100%;
+
+    @media screen and (min-height: 700px) {
+        gap: 50px;
+
+
+    }
 
 }
 
@@ -227,27 +241,33 @@ body {
     max-height: 700px;
 
     @media screen and (max-width: 1200px) {
-        flex-direction: column;
+        flex-direction: row;
+        column-gap: 0px;
 
-        //do Smth
     }
 
 
     & ul {
-        width: 56.7%;
+        @media screen and (max-width: 1200px) {
+            flex-direction: row;
+            column-gap: 0px;
+            width: 100%;
 
+        }
+
+        width: 56.7%;
         background-color: white;
         border-radius: 10px;
         padding: 10px;
         height: 100%;
+
         max-height: 500px;
         overflow: scroll;
     }
 
     & #select {
-
-
         padding-left: 30px;
+
 
         border-radius: 10px;
         padding-top: 50px;
@@ -255,16 +275,10 @@ body {
         height: 100%;
         justify-content: start;
         display: flex;
-
-
         overflow: hidden;
 
 
     }
-
-
-
-
 
 
 }
@@ -272,9 +286,14 @@ body {
 .searchContainer {
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     padding-top: 20px;
+    z-index: 50;
+    gap: 30px;
+    height: auto;
+    max-width: 646px;
 
     @media screen and (max-width: 1200px) {
         flex-direction: column;
@@ -282,6 +301,19 @@ body {
         //do Smth
     }
 }
+
+.findInContainer {
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-items: center;
+    text-align: start;
+    align-items: center;
+    gap: 5px;
+}
+
+
 
 
 
@@ -294,6 +326,8 @@ body {
     line-height: 36px;
     font-style: normal;
     font-weight: 700;
+    text-align: start;
+    width: 100%;
 }
 
 .headerButtonContainer {
@@ -306,6 +340,7 @@ body {
 }
 
 .landingSearchButtonContainer {
+    padding-left: 10px;
     width: 138px;
     height: 48px;
 }
@@ -314,6 +349,7 @@ body {
     position: relative;
     top: 11px;
     left: 35px;
+    font-weight: 700;
 
 
 }
@@ -324,4 +360,14 @@ body {
     cursor: pointer;
 }
 
-.orderByContainer {}
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    max-width: 590px;
+    overflow: hidden;
+}

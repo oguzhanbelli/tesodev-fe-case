@@ -8,7 +8,7 @@ import apiService from "../../db/userDb";
 
 const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log(searchParams.get("page"));
+
   const [searchValue, setSearchValue] = useState(searchParams.get("query"));
   const [results, setResults] = useState([]);
   const [pageNumberLimit] = useState(5);
@@ -33,7 +33,9 @@ const Search = () => {
   ]);
   const handleSelect = (option) => {
     setSearchParams(
-      `query=${searchValue}&orderBy=${option.data || ""}&page=${currentPage}`
+      `query=${searchValue}${
+        option.data !== undefined ? `&orderBy=${option.data}` : ""
+      }&page=${currentPage}`
     );
     setSelectedOption(option);
     setIsOptionsOpen(false);
@@ -65,9 +67,9 @@ const Search = () => {
     }
     setCurrentPage((prev) => prev - 1);
     setSearchParams(
-      `query=${searchValue || ""}&orderBy=${selectedOption?.data || ""}&page=${
-        currentPage - 1 || ""
-      }`
+      `query=${searchValue || ""}${
+        option.data !== undefined ? `&orderBy=${option.data}` : ""
+      }&page=${currentPage - 1 || ""}`
     );
   };
 
@@ -104,35 +106,43 @@ const Search = () => {
           <div className="d-flex w-full  flex-col justify-center items-center">
             <div className="w-full ">
               <div className="resultContainer">
-                <ul>
-                  <div>
-                    {results?.data?.map((item, idx) => (
-                      <ResultCard key={idx} data={item} />
-                    ))}
-                  </div>
-                </ul>
+                {results.pages === 0 && <div>Not Found Record</div>}
+                {results.pages > 0 && (
+                  <ul>
+                    <div>
+                      {results?.data?.map((item, idx) => (
+                        <ResultCard key={idx} data={item} />
+                      ))}
+                    </div>
+                  </ul>
+                )}
+
                 <div id="select">
-                  <DropDown
-                    isOptionsOpen={isOptionsOpen}
-                    setIsOptionsOpen={setIsOptionsOpen}
-                    handleSelect={handleSelect}
-                    setSearchParams={setSearchParams}
-                    selectedOption={selectedOption}
-                    setSelectedOption={setSelectedOption}
-                    optionsList={optionsList}
-                  />
+                  {results.pages > 0 && (
+                    <DropDown
+                      isOptionsOpen={isOptionsOpen}
+                      setIsOptionsOpen={setIsOptionsOpen}
+                      handleSelect={handleSelect}
+                      setSearchParams={setSearchParams}
+                      selectedOption={selectedOption}
+                      setSelectedOption={setSelectedOption}
+                      optionsList={optionsList}
+                    />
+                  )}
                 </div>
               </div>
             </div>
-            <Pagination
-              onPageChange={onPageChange}
-              currentPage={currentPage}
-              minPageLimit={minPageLimit}
-              onPrevClick={onPrevClick}
-              onNextClick={onNextClick}
-              totalPages={results.pages}
-              maxPageLimit={maxPageLimit}
-            />
+            {results.pages > 0 && (
+              <Pagination
+                onPageChange={onPageChange}
+                currentPage={currentPage}
+                minPageLimit={minPageLimit}
+                onPrevClick={onPrevClick}
+                onNextClick={onNextClick}
+                totalPages={results.pages}
+                maxPageLimit={maxPageLimit}
+              />
+            )}
           </div>
         </main>
       </div>

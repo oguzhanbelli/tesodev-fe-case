@@ -13,9 +13,11 @@ const ResultCard = ({ data }) => {
               </div>
               <div className={styles["input-result-item-detail"]}>
                 <div className="d-flex flex-col ">
-                  <h1>{data.NameSurname}</h1>
+                  <h1>{data.Company || "Not Found Company"}</h1>
                   <div className="d-flex flex-row">
-                    <p>{data.Country}</p>,<p>{data.City}</p>
+                    <p>
+                      {data.City},{data.Country}
+                    </p>
                   </div>{" "}
                 </div>
 

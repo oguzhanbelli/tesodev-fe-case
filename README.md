@@ -12,8 +12,8 @@ Hello everyone, Welcome to Tesodev Search App.
 <br></br>
 ## Install
 ---
-- npm install
-- npm run dev
+- `yarn or npm` install
+- `yarn dev` or  `npm run dev`
 
 
 

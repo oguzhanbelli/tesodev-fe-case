@@ -111,9 +111,17 @@ footer {
     color: black;
     text-align: center;
 
-    @media screen and (max-width: 1210px) {
-        visibility: hidden;
+    @media screen and (max-width: 1000px) {
+        display: none;
         //do Smth
+    }
+
+    @media screen and (max-height: 1500px) {
+        display: inline-flex;
+    }
+
+    @media screen and (max-height: 1200px) {
+        display: none;
     }
 
 }

@@ -4,15 +4,15 @@ class UserDb {
   };
 
   getUsers = ({ search, order, limit, page }) => {
-    const employeeDBStorage = localStorage.getItem("data");
+    const userDBStorage = localStorage.getItem("data");
 
     let result = [];
     let count = 0;
     let pages = 0;
-    if (employeeDBStorage) {
-      let employeeDB = JSON.parse(employeeDBStorage);
+    if (userDBStorage) {
+      let userDb = JSON.parse(userDBStorage);
 
-      employeeDB = employeeDB.data.map((item, idx) => {
+      userDb = userDb.data.map((item, idx) => {
         return {
           NameSurname: item[0],
           Company: item[1],
@@ -23,16 +23,16 @@ class UserDb {
         };
       });
 
-      result = employeeDB;
+      result = userDb;
       if (search !== undefined) {
-        result = result.filter((employee) =>
-          this.isTargetContains(search, employee.NameSurname)
+        result = result.filter((user) =>
+          this.isTargetContains(search, user.NameSurname)
         );
       }
       count = result.length;
       if (order !== undefined) {
-        result = result.filter((employee) =>
-          this.isTargetContains(search, employee.NameSurname)
+        result = result.filter((user) =>
+          this.isTargetContains(search, user.NameSurname)
         );
         this.orderBy(result, order);
       }
@@ -90,10 +90,10 @@ class UserDb {
     }
   };
   addUser = (values) => {
-    const employeeDBStorage = localStorage.getItem("data");
-    let employeeDB = JSON.parse(employeeDBStorage);
+    const userDBStorage = localStorage.getItem("data");
+    let userDb = JSON.parse(userDBStorage);
 
-    employeeDB.data.push([
+    userDb.data.push([
       values.NameSurname,
       values.Company,
       values.Email,
@@ -101,7 +101,7 @@ class UserDb {
       values.Country,
       values.City,
     ]);
-    localStorage.setItem("data", JSON.stringify(employeeDB));
+    localStorage.setItem("data", JSON.stringify(userDb));
   };
 }
 

@@ -4,19 +4,16 @@ const validations = yup.object().shape({
   NameSurname: yup
     .string()
 
-    .required("Zorunlu Alan"),
-  Email: yup
-    .string()
-    .email("Geçerli bir email giriniz.")
-    .required("Zorunlu Alan"),
+    .required("Required Field"),
+  Email: yup.string().email().required("Required Field"),
   Country: yup
     .string()
 
-    .required("Zorunlu Alan"),
+    .required("Required Field"),
   City: yup
     .string()
 
-    .required("Zorunlu Alan"),
+    .required("Required Field"),
 });
 
 export default validations;

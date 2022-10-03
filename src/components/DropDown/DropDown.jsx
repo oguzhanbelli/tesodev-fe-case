@@ -17,7 +17,7 @@ const DropDown = ({
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <button className={styles.button} type="button" onClick={toggleOptions}>
-          <SortIcon fill="black" width="26px" height="24px" />
+          <SortIcon fill="black" width="22px" height="20px" />
           {selectedOption?.title || "Order By"}
         </button>
         <div

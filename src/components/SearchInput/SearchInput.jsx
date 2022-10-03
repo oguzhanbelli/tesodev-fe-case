@@ -11,6 +11,9 @@ const SearchInput = ({ value, setValue, results, onClick }) => {
             if (e.key === "Enter") {
               onClick();
             }
+            if (e.key === "Escape") {
+              setValue("");
+            }
           }}
           placeholder={"Some..."}
           value={value}

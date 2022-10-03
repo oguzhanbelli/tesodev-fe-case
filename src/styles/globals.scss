@@ -99,6 +99,7 @@ footer {
     position: fixed;
     left: 0;
     bottom: 0;
+    overflow: hidden;
 
     height: 277px;
     display: flex;
@@ -110,6 +111,11 @@ footer {
     color: black;
     text-align: center;
 
+    @media screen and (max-width: 1210px) {
+        visibility: hidden;
+        //do Smth
+    }
+
 }
 
 .mt-5 {
@@ -119,7 +125,7 @@ footer {
 .carouselSection {
     @media screen and (max-width: 1210px) {
         visibility: hidden;
-        //do Smth
+
     }
 
 

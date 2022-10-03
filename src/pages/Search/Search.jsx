@@ -11,11 +11,11 @@ const Search = () => {
 
   const [searchValue, setSearchValue] = useState(searchParams.get("query"));
   const [results, setResults] = useState([]);
-  const [pageNumberLimit] = useState(5);
+  const [pageNumberLimit] = useState(3);
   const [currentPage, setCurrentPage] = useState(
     Number(searchParams.get("page")) || 1
   );
-  const [maxPageLimit, setMaxPageLimit] = useState(5);
+  const [maxPageLimit, setMaxPageLimit] = useState(6);
   const [minPageLimit, setMinPageLimit] = useState(0);
   const [selectedOption, setSelectedOption] = useState({
     title: searchParams.get("orderBy"),
@@ -67,9 +67,9 @@ const Search = () => {
     }
     setCurrentPage((prev) => prev - 1);
     setSearchParams(
-      `query=${searchValue || ""}${
-        option.data !== undefined ? `&orderBy=${option.data}` : ""
-      }&page=${currentPage - 1 || ""}`
+      `query=${searchValue || ""}&orderBy=${selectedOption?.data || ""}&page=${
+        currentPage - 1 || ""
+      }`
     );
   };
 
@@ -88,7 +88,9 @@ const Search = () => {
   const handleSearch = () => {
     setSearchValue(searchValue);
     setSearchParams(
-      `query=${searchValue || ""}&orderBy=${selectedOption?.data || ""}`
+      `query=${searchValue || ""}&orderBy=${
+        selectedOption?.data || ""
+      }&page=${1}`
     );
     setCurrentPage(1);
   };

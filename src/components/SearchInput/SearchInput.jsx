@@ -31,7 +31,7 @@ const SearchInput = ({ value, setValue, results, onClick }) => {
                         <MapIcon />
                       </div>
                       <div className={styles["input-result-item-detail"]}>
-                        <h1>{item?.Company}</h1>
+                        <h1>{item?.Company || "Not Found Company"}</h1>
 
                         <div className="d-flex flex-row ">
                           <p>

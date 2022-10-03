@@ -31,9 +31,7 @@ const Landing = () => {
           <div className="findInContainer">
             <div>
               <Logo />
-              <div className="justify-end w-full text-end  logoDescription">
-                Search App
-              </div>
+              <div className=" logoDescription">Search App</div>
             </div>
 
             <div className="w-full mt-5 justify-center items-center d-flex flex-col">

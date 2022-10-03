@@ -23,7 +23,7 @@ const SearchInput = ({ value, setValue, results, onClick }) => {
         <div className={styles["search-button"]}>
           <SearchIcon />
         </div>
-        <div>
+        <div className={styles["input-result-container-one"]}>
           {value.length > 1 && (
             <div className={styles["input-result-container"]}>
               <div className={styles["input-result"]}>

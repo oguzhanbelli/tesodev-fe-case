@@ -26,8 +26,8 @@ const Landing = () => {
   return (
     <>
       <div className="container">
-        <Header />
         <main className="mainContainer">
+          <Header />
           <div className="findInContainer">
             <div>
               <Logo />

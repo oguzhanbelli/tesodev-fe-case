@@ -95,6 +95,15 @@ body {
 
 }
 
+.landingHeaderContainer {
+    padding-top: 64px;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    padding-bottom: 20px;
+}
+
+
 footer {
     position: fixed;
     left: 0;
@@ -113,16 +122,14 @@ footer {
 
     @media screen and (max-width: 1000px) {
         display: none;
-        //do Smth
+
     }
 
-    @media screen and (max-height: 1500px) {
-        display: inline-flex;
-    }
-
-    @media screen and (max-height: 1200px) {
+    @media screen and (max-height: 1300px) {
         display: none;
     }
+
+
 
 }
 
@@ -147,7 +154,7 @@ footer {
 .mainContainer {
     padding-top: 10px;
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
     padding: 0;
     margin: 0;
     display: flex;

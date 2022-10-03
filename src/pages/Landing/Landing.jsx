@@ -22,7 +22,6 @@ const Landing = () => {
       search: `?query=${searchValue}`,
     });
   };
-  console.log(results);
 
   return (
     <>

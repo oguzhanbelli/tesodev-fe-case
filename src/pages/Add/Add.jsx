@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import { useState } from "react";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import Header from "../../components/Add/Header/Header";
 import Form from "../../components/Form/Form";
 import validationSchema from "../../components/Form/validations";
@@ -11,6 +12,7 @@ const Add = () => {
   const navigate = useNavigate();
 
   const formik = useFormik({
+    validateOnMount: true,
     initialValues: {
       NameSurname: "",
       Country: "",
@@ -19,10 +21,32 @@ const Add = () => {
       Email: "",
       Date: new Date().getFullYear().toString(),
     },
+
     validationSchema,
-    onSubmit: (values) => {
-      console.log(values);
-      apiService.addUser(values);
+    onSubmit: (values, { resetForm }) => {
+      try {
+        apiService.addUser(values);
+        toast("Added Succesfull", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        resetForm();
+      } catch (e) {
+        toast(e, {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
     },
   });
   return (

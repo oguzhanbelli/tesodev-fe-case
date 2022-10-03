@@ -11,7 +11,6 @@ const Header = ({
 }) => {
   const navigate = useNavigate();
 
-  console.log();
   return (
     <header>
       <div>

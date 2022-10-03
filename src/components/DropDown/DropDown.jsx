@@ -28,7 +28,6 @@ const DropDown = ({
             {optionsList?.map((option, index) => (
               <li key={index} onClick={() => handleSelect(option)} tabIndex={0}>
                 {option?.title}
-                {console.log(option.title)}
               </li>
             ))}
           </ul>

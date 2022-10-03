@@ -16,6 +16,7 @@ $errorColor: #FF0000;
 
 
 
+
 .input {
 
     height: 46px;
@@ -24,6 +25,8 @@ $errorColor: #FF0000;
     &::placeholder {
         font-weight: 700;
     }
+
+
 
     &:hover {
         background-color: rgba(100, 100, 100, 0.08);
@@ -92,4 +95,6 @@ $errorColor: #FF0000;
     width: 100%;
     justify-content: end;
     align-items: flex-end;
+
+
 }

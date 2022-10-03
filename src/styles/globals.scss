@@ -1,86 +1,6 @@
 @use '/src/styles/variables';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-
-
-html,
-body,
-blockquote,
-code,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-pre {
-    margin: 0;
-    padding: 0
-}
-
-button,
-fieldset,
-form,
-input,
-legend,
-textarea,
-select {
-    margin: 0;
-    padding: 0
-}
-
-fieldset {
-    border: 0
-}
-
-a,
-a * {
-    cursor: pointer
-}
-
-div {
-    margin: 0;
-    padding: 0;
-    background-color: transparent;
-    text-align: left
-}
-
-hr,
-img {
-    border: 0
-}
-
-applet,
-iframe,
-object {
-    border: 0;
-    margin: 0;
-    padding: 0
-}
-
-button,
-input[type=button],
-input[type=image],
-input[type=reset],
-input[type=submit],
-label {
-    cursor: pointer;
-}
-
-ul,
-li {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-strong {
-    font-weight: bold;
-}
-
-em {
-    font-style: italic;
-}
+@import "_reset";
 
 *,
 *:before,
@@ -240,6 +160,14 @@ body {
     height: 100vh;
     max-height: 700px;
 
+    input {
+        &:focus {
+            border: 1px;
+
+            outline: none;
+        }
+    }
+
     @media screen and (max-width: 1200px) {
         flex-direction: row;
         column-gap: 0px;
@@ -363,7 +291,7 @@ body {
 .formContainer {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 9px;
 
     justify-content: center;
     height: 100%;

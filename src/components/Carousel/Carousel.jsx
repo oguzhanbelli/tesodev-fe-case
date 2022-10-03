@@ -8,35 +8,35 @@ const _items = [
   {
     new: {
       title: "A Plan to Rebuild the Bus Terminal Everyone Loves to Hate",
-      desc: 'Known as "The Magician", Efren Reyes is well regarded by many professionals as the greatest all around new of all time.',
+      desc: "1h ago · by Troy Corlson",
       image: "https://i.ibb.co/YTHNr3C/Image.png",
     },
   },
   {
     new: {
       title: "A Plan to Rebuild the Bus Terminal Everyone Loves to Hate",
-      desc: 'Known as "The Magician", Efren Reyes is well regarded by many professionals as the greatest all around new of all time.',
+      desc: "1h ago · by Troy Corlson",
       image: "https://i.ibb.co/YTHNr3C/Image.png",
     },
   },
   {
     new: {
       title: "A Plan to Rebuild the Bus Terminal Everyone Loves to Hate",
-      desc: 'Known as "The Magician", Efren Reyes is well regarded by many professionals as the greatest all around new of all time.',
+      desc: "1h ago · by Troy Corlson",
       image: "https://i.ibb.co/YTHNr3C/Image.png",
     },
   },
   {
     new: {
       title: "A Plan to Rebuild the Bus Terminal Everyone Loves to Hate",
-      desc: 'Known as "The Magician", Efren Reyes is well regarded by many professionals as the greatest all around new of all time.',
+      desc: "1h ago · by Troy Corlson",
       image: "https://i.ibb.co/YTHNr3C/Image.png",
     },
   },
   {
     new: {
       title: "A Plan to Rebuild the Bus Terminal Everyone Loves to Hate",
-      desc: 'Known as "The Magician", Efren Reyes is well regarded by many professionals as the greatest all around new of all time.',
+      desc: "1h ago · by Troy Corlson",
       image: "https://i.ibb.co/YTHNr3C/Image.png",
     },
   },

@@ -6,7 +6,7 @@ const Pagination = (props) => {
 
   // build page numbers list based on total number of pages
   const pages = [];
-  console.log(totalPages);
+
   for (let i = 1; i <= totalPages; i++) {
     pages.push(i);
   }
@@ -24,7 +24,6 @@ const Pagination = (props) => {
   };
 
   const pageNumbers = pages.map((page) => {
-    console.log(page, currentPage);
     if (page <= maxPageLimit && page > minPageLimit) {
       return (
         <li
@@ -40,7 +39,6 @@ const Pagination = (props) => {
       return null;
     }
   });
-  console.log(pages);
 
   // page ellipses
   let pageIncrementEllipses = null;

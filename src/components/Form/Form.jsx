@@ -1,7 +1,6 @@
 import Input from "../Input/Input";
 import styles from "./form.module.scss";
 const Form = ({ formik }) => {
-  console.log(formik.errors);
   return (
     <form onSubmit={formik.handleSubmit} className="formContainer">
       <Input
@@ -44,9 +43,14 @@ const Form = ({ formik }) => {
         placeholder={"Enter a e-mail (abc@xyz.com)"}
         header={"Email"}
       />
+
       <div className={styles.submitContainer}>
-        {Object.values(formik.errors).length <= 0 && (
-          <button className={styles.submitButton} type="submit">
+        {Object.values(formik.errors).length === 0 && (
+          <button
+            disabled={!(formik.isValid && formik.dirty)}
+            className={styles.submitButton}
+            type="submit"
+          >
             Add
           </button>
         )}

@@ -29,10 +29,6 @@ const Input = ({
         onChange={onChange}
         className={className || error ? styles.error : styles.input}
       />
-
-      <p className={`${error ? styles.headerError : styles.header}`}>
-        {errors?.[name]}
-      </p>
     </>
   );
 };

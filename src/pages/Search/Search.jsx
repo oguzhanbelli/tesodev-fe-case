@@ -40,6 +40,7 @@ const Search = () => {
     setSelectedOption(option);
     setIsOptionsOpen(false);
   };
+  console.log(results);
 
   useEffect(() => {
     setResults(
@@ -134,7 +135,7 @@ const Search = () => {
                 </div>
               </div>
             </div>
-            {results.pages > 0 && (
+            {results?.data?.length > 3 && results.pages > 0 && (
               <Pagination
                 onPageChange={onPageChange}
                 currentPage={currentPage}
